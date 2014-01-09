@@ -1,0 +1,26 @@
+{
+  "name": "angular-format",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kamil4521/angular-format",
+  "description": "Angular string format library",
+  "main": "angular-format.js",
+  "keywords": [
+    "angular",
+    "format",
+    "string"
+  ],
+  "authors": [
+    "Giskard Solutions"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "qunit": "~1.13.0"
+  }
+}
