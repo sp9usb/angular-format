@@ -25,7 +25,7 @@
     "app/views",
     "app/.*",
     "app/*.html",
-    "app/*.img",
+    "app/*.ico",
     "app/*.txt",
     "Gruntfile.js",
     "karma.conf.js",
