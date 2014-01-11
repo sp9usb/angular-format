@@ -21,7 +21,7 @@
     var keys = rootObj.match(/(\{[\d]{1,}\}){1}/g);
     for(var key in keys){
       // replace from {0} the "{" and "}" to empty string
-      keyValue = key.replace('{', '').replace('}', '');
+      var keyValue = key.replace('{', '').replace('}', '');
       rootObj = rootObj.replace(
           '{'+key+'}', 
           params[keyValue]
@@ -36,7 +36,7 @@
     var keys = rootObj.match(/(\{[a-zA-Z0-9]{1,}\}){1}/g);
     for(var key in keys){
       // replace from {0} the "{" and "}" to empty string
-      keyValue = keys[key].replace('{', '').replace('}', '');
+      var keyValue = keys[key].replace('{', '').replace('}', '');
       rootObj = rootObj.replace(
           keys[key], 
           params[keyValue]
@@ -46,19 +46,31 @@
     return rootObj;
   };
 
-  String.prototype.format = function(params){ 
-    var $rootObj = this; 
+  var format = function(source, params){ 
 
     if (params === null || params === undefined){
-      return $rootObj;
+      return source;
     } else if (isJsonObject(params)){
-      return formatStringByJson($rootObj, params);
+      return formatStringByJson(source, params);
     } else if (isArrayObject(params)){
-      return formatStringByArray($rootObj, params);
+      return formatStringByArray(source, params);
     } else {
       throw 'Invalid params object';
     }
   };
+
+  String.prototype.format = function(params){
+    var $rootObj = this; 
+    return format($rootObj, params);
+  };
+
+  if (typeof(angular) !== 'undefined') {
+    angular.module('angular-format', []).filter('format', function() {
+      return function(sourceStr, params) {
+        return format(sourceStr, params);
+      };
+    });
+  }
 
   return {};
 })();

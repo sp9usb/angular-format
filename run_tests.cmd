@@ -1,2 +1,2 @@
 @echo off
-start tests/tests.html
+start test/qunit_tests.html

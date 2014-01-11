@@ -1,1 +1,1 @@
-open tests/tests.html
+open test/qunit_tests.html
