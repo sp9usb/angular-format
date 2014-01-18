@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "homepage": "https://github.com/kamil4521/angular-format",
   "description": "Angular string format library",
-  "main": "angular-format.js",
+  "main": "app/src/angular-format.js",
   "keywords": [
     "angular",
     "format",
